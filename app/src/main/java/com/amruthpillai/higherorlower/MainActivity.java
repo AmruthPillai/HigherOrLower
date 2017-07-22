@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         int guessedNumber = Integer.parseInt(guessEditText.getText().toString());
 
         if (guessedNumber < randomNumber) {
-            Toast.makeText(this, "You guessed lower!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.guess_lower, Toast.LENGTH_SHORT).show();
         } else if (guessedNumber > randomNumber) {
-            Toast.makeText(this, "You guessed higher!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.guess_higher, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Congratulations, you guessed it right!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.guess_correct, Toast.LENGTH_SHORT).show();
             guessButton.setEnabled(false);
         }
     }
