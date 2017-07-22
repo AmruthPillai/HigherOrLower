@@ -46,21 +46,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void guess(View view) {
-        int guessedNumber = Integer.parseInt(guessEditText.getText().toString());
-
-        if (guessedNumber < 1 || guessedNumber > 20) {
-            makeToast(R.string.enter_within_range);
-        }
-
-        if (guessedNumber < randomNumber) {
-            makeToast(R.string.guess_lower);
-        } else if (guessedNumber > randomNumber) {
-            makeToast(R.string.guess_higher);
+        if (guessEditText.getText().toString().isEmpty()) {
+            makeToast(R.string.enter_number);
         } else {
-            makeToast(R.string.guess_correct);
+            int guessedNumber = Integer.parseInt(guessEditText.getText().toString());
 
-            guessButton.setEnabled(false);
-            playAgainButton.setVisibility(View.VISIBLE);
+            if (guessedNumber < 1 || guessedNumber > 20) {
+                makeToast(R.string.enter_within_range);
+            }
+
+            if (guessedNumber < randomNumber) {
+                makeToast(R.string.guess_lower);
+            } else if (guessedNumber > randomNumber) {
+                makeToast(R.string.guess_higher);
+            } else {
+                makeToast(R.string.guess_correct);
+
+                guessButton.setEnabled(false);
+                playAgainButton.setVisibility(View.VISIBLE);
+            }
         }
     }
 }
