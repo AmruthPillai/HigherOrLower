@@ -41,15 +41,20 @@ public class MainActivity extends AppCompatActivity {
         playAgainButton.setVisibility(View.INVISIBLE);
     }
 
+    void makeToast(int string) {
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+    }
+
     public void guess(View view) {
         int guessedNumber = Integer.parseInt(guessEditText.getText().toString());
 
         if (guessedNumber < randomNumber) {
-            Toast.makeText(this, R.string.guess_lower, Toast.LENGTH_SHORT).show();
+            makeToast(R.string.guess_lower);
         } else if (guessedNumber > randomNumber) {
-            Toast.makeText(this, R.string.guess_higher, Toast.LENGTH_SHORT).show();
+            makeToast(R.string.guess_higher);
         } else {
-            Toast.makeText(this, R.string.guess_correct, Toast.LENGTH_SHORT).show();
+            makeToast(R.string.guess_correct);
+
             guessButton.setEnabled(false);
             playAgainButton.setVisibility(View.VISIBLE);
         }
