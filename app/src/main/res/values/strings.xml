@@ -7,4 +7,5 @@
     <string name="guess_higher">You guessed higher!</string>
     <string name="guess_correct">Congratulations, you guessed it right! Care to play again?</string>
     <string name="play_again">Play Again?</string>
+    <string name="enter_within_range">Please enter a number that is within the range of 1 and 20.</string>
 </resources>

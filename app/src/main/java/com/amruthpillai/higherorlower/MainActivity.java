@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
     public void guess(View view) {
         int guessedNumber = Integer.parseInt(guessEditText.getText().toString());
 
+        if (guessedNumber < 1 || guessedNumber > 20) {
+            makeToast(R.string.enter_within_range);
+        }
+
         if (guessedNumber < randomNumber) {
             makeToast(R.string.guess_lower);
         } else if (guessedNumber > randomNumber) {
