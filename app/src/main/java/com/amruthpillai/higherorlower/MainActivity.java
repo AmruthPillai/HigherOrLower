@@ -11,10 +11,8 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Random random = new Random();
-
     EditText guessEditText;
-    Button guessButton;
+    Button guessButton, playAgainButton;
 
     int randomNumber;
 
@@ -25,8 +23,22 @@ public class MainActivity extends AppCompatActivity {
 
         guessEditText = (EditText) findViewById(R.id.guessEditText);
         guessButton = (Button) findViewById(R.id.guessButton);
+        playAgainButton = (Button) findViewById(R.id.playAgainButton);
+
+        generateRandomNumber();
+    }
+
+    void generateRandomNumber() {
+        Random random = new Random();
 
         randomNumber = random.nextInt(20) + 1;
+    }
+
+    public void resetGame(View view) {
+        generateRandomNumber();
+
+        guessButton.setEnabled(true);
+        playAgainButton.setVisibility(View.INVISIBLE);
     }
 
     public void guess(View view) {
@@ -39,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, R.string.guess_correct, Toast.LENGTH_SHORT).show();
             guessButton.setEnabled(false);
+            playAgainButton.setVisibility(View.VISIBLE);
         }
     }
 }
